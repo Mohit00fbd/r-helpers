@@ -1,0 +1,15 @@
+---
+title: "Efficient Reading"
+author: "Mradul Verma"
+date: "24/03/2020"
+output: html_document
+---
+## Tips for read.table
+* If there's no comment, make comment `r comment.char = ""`.  
+* Define colClasses argument by yourself, if the dataset has many columns you can use the following snippet. 
+```{r}
+initial <- read.table("database.txt", nrows=100)
+classes <- sapply(initial, class)
+tabAll <- read.table("database.txt", colClasses = classes)
+```
+
